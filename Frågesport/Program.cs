@@ -6,13 +6,15 @@ namespace Frågesport
     {
         static void Main(string[] args)
         {
+            int starta = 0;
             int question = 0;
             int points = 0;
             int game = 0;
-            Console.WriteLine("Det hät är en frågesport om League of legends items  \n skriv s för att starta");
-            string start = Console.ReadLine().ToLower();
+            Console.WriteLine("Det hät är en frågesport om League of legends items  \n skriv 1 för att starta");
+            string start = Console.ReadLine();
+            int.TryParse(start, out starta);
 
-            while (start == "s")
+            while (start == "1")
             {
                 game = 1;
             }
@@ -20,10 +22,10 @@ namespace Frågesport
             while (game == 1)
             {
                 question++;
-                game = 0;
+                game--;
             }
 
-            if (question == 1 && game == 1)
+            if (question == 1 && game == 0)
             {
 
                 string answer1 = AnswerQuestion();
