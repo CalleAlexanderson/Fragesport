@@ -6,45 +6,36 @@ namespace Frågesport
     {
         static void Main(string[] args)
         {
-            int starta = 0;
             int question = 0;
             int points = 0;
-            int game = 0;
-            Console.WriteLine("Det hät är en frågesport om League of legends items  \n skriv 1 för att starta");
-            string start = Console.ReadLine();
-            int.TryParse(start, out starta);
+            Console.WriteLine("Det hät är en frågesport om League of legends items");
 
-            while (start == "1")
+            question = Rotation();
+
+            Rotation();
+            if (question == 1)
             {
-                game = 1;
-            }
-
-            while (game == 1)
-            {
-                question++;
-                game--;
-            }
-
-            if (question == 1 && game == 0)
-            {
-
+                Question1();
                 string answer1 = AnswerQuestion();
 
-                Question1();
+
                 if (answer1 == "c")
                 {
                     Console.WriteLine("korrekt");
                     points++;
-                    game = 1;
                 }
                 else
                 {
                     Console.WriteLine("Inkorrekt");
-                    game = 1;
                 }
 
             }
-
+            Rotation();
+            if (question == 2)
+            {
+                Question2();
+            }
+            Console.ReadLine();
 
 
 
@@ -55,6 +46,23 @@ namespace Frågesport
             Console.WriteLine("Hur många stacks har black cleavers armor shred passsive? \n A: 4 \n B: 5 \n C: 6 \n D: 7");
         }
 
+        static void Question2()
+        {
+            Console.WriteLine("Hur mycket mana får man totalt från Tear of the goddess när den är full? \n A: 250 \n B: 500 \n C: 750 \n D: 1000 ");
+        }
+
+        static int Rotation()
+        {
+            int questionmet = 0;
+            int game = 0;
+            game++;
+            while (game == 1)
+            {
+                questionmet++;
+                game--;
+            }
+            return questionmet;
+        }
         static string AnswerQuestion()
         {
             string answer = "";
